@@ -1,0 +1,52 @@
+server:
+  servlet:
+    application-display-name: es-demo
+  port: 8180
+  max-http-header-size: 1048576
+
+  tomcat:
+    basedir: /apache-tomcat/
+    accesslog:
+      enabled: true
+      pattern: '%t %{trace_id}i %a %U %s %D %b %{User-Agent}i'
+      prefix: localhost_access_log
+      suffix: .txt
+    max-threads: 500
+    accept-count: 500
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 100MB
+  application:
+    name: es-demo
+  elasticsearch:
+    rest:
+      uris: localhost:9300
+      username: baasdev
+      password: CQD3aDKcTVTRAAqm
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300 # 配置IP和端口号
+      cluster-name: elasticsearch
+#      cluster-name: elasticsearch622 # 配置集群名，默认为elasticsearch，如果手动修改过此处需指定
+#      repositories:
+#        enabled: true
+
+## 应用管理
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    redis:
+      enabled: false
+    elasticsearch:
+      enabled: false

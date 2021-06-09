@@ -1,0 +1,33 @@
+### 根据id查询单个文档
+GET http://localhost:8180/v1/book/get?id=0001
+
+### 根据id删除单个文档
+GET http://localhost:8180/v1/book/delete?id=0002
+
+### 获取所有文档
+GET http://localhost:8180/v1/book/findAll
+
+### 添加文档
+POST http://localhost:8180/v1/book/create
+Content-Type: application/json
+
+{
+  "id": "0002",
+  "name": "小李",
+  "content": "早点睡",
+  "author": "梦春秋",
+  "publicDate": "2021-06-09 12:00:00"
+}
+
+
+### 更新文档
+POST http://localhost:8180/v1/book/update
+Content-Type: application/json
+
+{
+  "id": "0001",
+  "name": "小刘",
+  "content": "早上好",
+  "author": "夏之雨",
+  "publicDate": "2021-06-09 12:00:00"
+}
