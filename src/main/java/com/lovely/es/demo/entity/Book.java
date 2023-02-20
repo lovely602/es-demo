@@ -5,6 +5,7 @@ package com.lovely.es.demo.entity;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import lombok.Getter;
@@ -15,10 +16,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@Document(indexName = "book")
+@Document(indexName = "book", type = "book")
 public class Book {
 
-  /** id */
+  @Id
   private String id;
   /** 书名 */
   private String name;
@@ -28,5 +29,4 @@ public class Book {
   private String author;
   /** 出版日期 */
   private Date publicDate;
-
 }

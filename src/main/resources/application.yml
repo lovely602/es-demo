@@ -30,9 +30,10 @@ spring:
     elasticsearch:
       cluster-nodes: localhost:9300 # 配置IP和端口号
       cluster-name: elasticsearch
-#      cluster-name: elasticsearch622 # 配置集群名，默认为elasticsearch，如果手动修改过此处需指定
-#      repositories:
-#        enabled: true
+      properties:
+        path:
+          logs: ./elasticsearch/log #elasticsearch日志存储目录
+          data: ./elasticsearch/data #elasticsearch数据存储目录
 
 ## 应用管理
 management:
